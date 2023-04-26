@@ -1,72 +1,14 @@
-# qb-inventory
-
-# License
-
-    QBCore Framework
-    Copyright (C) 2021 Joshua Eger
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>
-
-## Dependencies
-- [qb-core](https://github.com/qbcore-framework/qb-core)
-- [qb-logs](https://github.com/qbcore-framework/qb-logs) - For logging transfer and other history
-- [qb-traphouse](https://github.com/qbcore-framework/qb-traphouse) - Trap house system for qbcore
-- [qb-radio](https://github.com/qbcore-framework/qb-radio) - Radio system for communication
-- [qb-drugs](https://github.com/qbcore-framework/qb-drugs) -  Drugs and Weed Planting System
-- [qb-shops](https://github.com/qbcore-framework/qb-shops) - Needed in order to add shops
-
-## Screenshots
-![General](https://i.imgur.com/GR0MDFN.png)
-![ID Card](https://i.imgur.com/C6gAOWi.png)
-![Weapon](https://i.imgur.com/RbCvHJb.png)
-![Shop](https://i.imgur.com/7Da7UEX.png)
-![Crafting](https://i.imgur.com/peONaL9.png)
-![Glovebox](https://i.imgur.com/LjDEYWa.png)
-![Trunk](https://i.imgur.com/IoGYZbv.png)
-
-## Features
-- Item crafting
-- Weapon attachment crafting
-- Stashes (Personal and/or Shared)
-- Vehicle Trunk & Glovebox
-- Weapon serial number
-- Shops
-- Item Drops
-
-## Installation
-### Manual
-- Download the script and put it in the `[qb]` directory.
-- Import `qb-inventory.sql` in your database
-- Add the following code to your server.cfg/resouces.cfg
-```
-ensure qb-core
-ensure qb-logs
-ensure qb-inventory
-ensure qb-traphouse
-ensure qb-radio
-ensure qb-drugs
-ensure qb-shops
-```
-
-## Configuration
-```
-Config = {}
+Config = Config or {}
 
 Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Use qb-target interactions (don't change this, go to your server.cfg and add `setr UseTarget true` to use this and just that from true to false or the other way around)
 
 Config.MaxInventoryWeight = 120000 -- Max weight a player can carry (default 120kg, written in grams)
 Config.MaxInventorySlots = 41 -- Max inventory slots for a player
+
+Config.KeyBinds = {
+    Inventory = 'TAB',
+    HotBar = 'z'
+}
 
 Config.CleanupDropTime = 15 * 60 -- How many seconds it takes for drops to be untouched before being deleted
 Config.MaxDropViewDistance = 12.5 -- The distance in GTA Units that a drop can be seen
@@ -81,6 +23,12 @@ Config.VendingObjects = {
 
 Config.BinObjects = {
     "prop_bin_05a",
+}
+
+Config.Progressbar = {
+    Enable = true,         -- True to Enable the progressbar while opening inventory
+    minT = 350,             -- Min Time for Inventory to open
+    maxT = 500              -- Max Time for Inventory to open
 }
 
 Config.CraftingObject = `prop_toolchest_05`
@@ -443,4 +391,3 @@ Config.MaximumAmmoValues = {
     ["shotgun"] = 200,
     ["rifle"] = 250,
 }
-```
