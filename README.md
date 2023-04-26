@@ -20,20 +20,15 @@
 
 ## Dependencies
 - [qb-core](https://github.com/qbcore-framework/qb-core)
-- [qb-logs](https://github.com/qbcore-framework/qb-logs) - For logging transfer and other history
 - [qb-traphouse](https://github.com/qbcore-framework/qb-traphouse) - Trap house system for qbcore
 - [qb-radio](https://github.com/qbcore-framework/qb-radio) - Radio system for communication
 - [qb-drugs](https://github.com/qbcore-framework/qb-drugs) -  Drugs and Weed Planting System
 - [qb-shops](https://github.com/qbcore-framework/qb-shops) - Needed in order to add shops
 
 ## Screenshots
-![General](https://i.imgur.com/GR0MDFN.png)
-![ID Card](https://i.imgur.com/C6gAOWi.png)
-![Weapon](https://i.imgur.com/RbCvHJb.png)
-![Shop](https://i.imgur.com/7Da7UEX.png)
-![Crafting](https://i.imgur.com/peONaL9.png)
-![Glovebox](https://i.imgur.com/LjDEYWa.png)
-![Trunk](https://i.imgur.com/IoGYZbv.png)
+![General](https://media.discordapp.net/attachments/1091083769710129152/1100269608851755089/image.png?width=1365&height=671)
+![General1](https://media.discordapp.net/attachments/1091083769710129152/1100270395342475285/image.png?width=1440&height=531)
+![3eneral3](https://media.discordapp.net/attachments/1091083769710129152/1100270896914104430/image.png?width=1231&height=671)
 
 ## Features
 - Item crafting
@@ -51,7 +46,6 @@
 - Add the following code to your server.cfg/resouces.cfg
 ```
 ensure qb-core
-ensure qb-logs
 ensure qb-inventory
 ensure qb-traphouse
 ensure qb-radio
@@ -61,12 +55,17 @@ ensure qb-shops
 
 ## Configuration
 ```
-Config = {}
+Config = Config or {}
 
 Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Use qb-target interactions (don't change this, go to your server.cfg and add `setr UseTarget true` to use this and just that from true to false or the other way around)
 
 Config.MaxInventoryWeight = 120000 -- Max weight a player can carry (default 120kg, written in grams)
 Config.MaxInventorySlots = 41 -- Max inventory slots for a player
+
+Config.KeyBinds = {
+    Inventory = 'TAB',
+    HotBar = 'z'
+}
 
 Config.CleanupDropTime = 15 * 60 -- How many seconds it takes for drops to be untouched before being deleted
 Config.MaxDropViewDistance = 12.5 -- The distance in GTA Units that a drop can be seen
@@ -81,6 +80,12 @@ Config.VendingObjects = {
 
 Config.BinObjects = {
     "prop_bin_05a",
+}
+
+Config.Progressbar = {
+    Enable = true,         -- True to Enable the progressbar while opening inventory
+    minT = 350,             -- Min Time for Inventory to open
+    maxT = 500              -- Max Time for Inventory to open
 }
 
 Config.CraftingObject = `prop_toolchest_05`
@@ -443,4 +448,5 @@ Config.MaximumAmmoValues = {
     ["shotgun"] = 200,
     ["rifle"] = 250,
 }
+
 ```
