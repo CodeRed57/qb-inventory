@@ -8,16 +8,18 @@ p {
 :root {
 	--CMainGr: #00f5d83c;
 	--CSecondGr: #0000003a;
+	--Chover: #00f5d8b9;
+	--Chovershadow: #000000b5;
+
 	--infolineGr: #00f5d0;
 	--progressbar: #01413c6d;
 	--progressbarsc: #0141386d;
 	--pro: #00ffc86d;
 	--prosc: #00ffc86d;
-	--durability: #025c536d;
+	--durability: #00ffe5c0;
 	--durability2: #00ffe56d;
 	--durability2sc: #00ffd06d;
 	--durabilitysc: #0141386d;
-
 	--iconcolor: #ffffff;
 }
 
@@ -126,15 +128,17 @@ body {
 	font-family: "Rajdhani", sans-serif;
 }
 
+
 .inv-options {
 	position: absolute;
 	margin: 0 auto;
-	left: 0;
 	right: 0;
 	width: 9%;
-	top: 31%;
-	left: 3vh;
+	top: 28%;
+	left: 1vh;
+	cursor: pointer; /* Can also be 'none' however, as these are the buttons I feel as the pointer fits better */
 }
+
 
 .combine-option-container {
 display: none;
@@ -198,6 +202,7 @@ display: none;
 	font-weight: 600;
 	font-family: "Rajdhani", sans-serif;
 }
+
 .menu-open-btn {
 	position: relative;
 	width: 27px;
@@ -217,8 +222,9 @@ display: none;
 
   .menu-open-btn i {
 	color: rgb(255, 255, 255);
-	font-size: 14px;
-	margin-top: 7px;
+	font-size: 20px;
+	margin-top: 4px;
+	text-align: center;
   }
 
 
@@ -242,12 +248,12 @@ display: none;
 
 .item-slot-hoverClass {
 	/* opacity: 0.6; */
-	background: linear-gradient(to bottom right, var(--CSecondGr), var(--CMainGr));
+	background: linear-gradient(to bottom right, var(--Chovershadow), var(--Chover));
   }
 
   .item-slot:hover {
 	/* opacity: 0.7; */
-	background: linear-gradient(to bottom right, var(--CSecondGr), var(--CMainGr));
+	background: linear-gradient(to bottom right, var(--Chovershadow), var(--Chover));
   }
 
 .inv-option-item {
@@ -331,7 +337,7 @@ display: none;
   .inv-option-item {
 	width: 7vw;
 	height: 5vh;
-	margin-top: 20%;
+	margin-top: 15%;
 	background: linear-gradient(to bottom right, var(--CSecondGr), var(--CMainGr));
 	border: 0px solid rgba(0, 0, 0, 0.01);
 	color: white;
@@ -341,8 +347,50 @@ display: none;
 
   .inv-option-item:hover {
 	opacity: 0.9;
-	background: linear-gradient(to bottom right, var(--CSecondGr), var(--CMainGr));
+	background: linear-gradient(to bottom right, var(--Chovershadow), var(--Chover));
   }
+
+#weapon-attachments i {
+	color: rgb(255, 255, 255);
+	font-size: 20px;
+	margin-top: 5px;
+	text-align: center;
+}
+
+#weapon-attachments {
+	position: relative;
+	width: 30px;
+	height: 30px;
+	background: linear-gradient(to bottom right, var(--CSecondGr), var(--CMainGr));
+	box-shadow: 0.05rem 0.05rem 0.05rem 0.05rem #00000084;
+	margin-top: 50px;
+	margin-left: 50px;
+	border-radius: 4px;
+	text-align: center;
+	float: left;
+	z-index: 9999999;
+}
+
+#rob-money i {
+	color: rgb(255, 255, 255);
+	font-size: 20px;
+	margin-top: 5px;
+	text-align: center;
+}
+
+#rob-money {
+	position: relative;
+	width: 30px;
+	height: 30px;
+	background: linear-gradient(to bottom right, var(--CSecondGr), var(--CMainGr));
+	box-shadow: 0.05rem 0.05rem 0.05rem 0.05rem #00000084;
+	margin-top: 50px;
+	margin-left: 50px;
+	border-radius: 4px;
+	text-align: center;
+	float: left;
+	z-index: 9999999;
+}
 
 
   .btn-combine {
@@ -413,13 +461,13 @@ display: none;
 	position: absolute;
 	bottom: 0;
 	width: 0%;
-	height: 0.4vh;
+	height: 0.2vh;
 	background-color: rgb(111, 195, 111);
 	box-shadow: inset 0 0 0.25vh 0 rgba(0, 0, 0, 0.2);
   }
 
 .item-slot-quality p {
-	color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0);
   font-size: 1.0vh;
   text-align: left;
   text-transform: uppercase;
@@ -888,7 +936,7 @@ display: none;
 
   .ammo-box:hover {
 	/* opacity: 0.7; */
-	background: linear-gradient(to bottom right, var(--CSecondGr), var(--CMainGr));
+	background-color: rgb(18, 18, 18);
   }
 
 .ammo-box > img {
@@ -951,18 +999,26 @@ display: none;
 .weapon-attachments-container {
 	position: absolute;
 	left: -100vw;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(to bottom right, var(--CSecondGr), var(--CMainGr));
-}
+	width: 100vw;
+	height: 100vh;
+	top: -0.2vh;
+	background-color: rgba(0, 0, 0, 0);
+  }
 
-.weapon-attachments-container-title {
-	position: absolute;
-	margin: 5vh;
+  .weapon-attachments-container-title {
+	position: relative;
+	top: 0%;
+	left: 0%;
+	padding-right: 30vw;
+	padding-left: 5vh;
+	padding-top: 0.7vh;
+	padding-bottom: 0.7vh;
 	font-size: 3vh;
+	background-color: rgb(25, 25, 25, 0.8);
 	color: rgb(255, 255, 255);
-	font-family: 'Poppins', sans-serif;
-}
+	border-radius: 0px 0px 12px 12px;
+	font-family: "Rajdhani", sans-serif;
+  }
 
 .weapon-attachments-container-description {
 	position: absolute;
@@ -974,68 +1030,91 @@ display: none;
 }
 
 .weapon-attachments-container-details {
-	position: absolute;
+	position: relative;
 	margin: 5vh;
-	top: 9vh;
+	top: 5vh;
+	left: 80vw;
 	font-size: 1.4vh;
 	color: rgba(255, 255, 255, 0.8);
-	font-family: 'Poppins', sans-serif;
-}
+	font-family: "Rajdhani", sans-serif;
+  }
 
 .weapon-attachments-container-detail-durability {
-	height: 1.5vh;
-	width: 10vh;
+	height: 2.5vh;
+	width: 12vw;
 	background: linear-gradient(to bottom right, var(--durability), var(--durabilitysc));
-	border-radius: 20px;
-}
+	border-radius: 4px;
+  }
 
-.weapon-attachments-container-detail-durability-total {
+  .weapon-attachments-container-detail-durability-total {
 	height: 100%;
 	width: 50%;
-	border-radius: 20px;
-	background: linear-gradient(to bottom right, var(--durability2), var(--durability2sc));
-}
+	background: linear-gradient(to bottom right, var(--durability2), var(--durabilitysc2));
+	border-radius: 4px;
+  }
 
 .weapon-attachments-container-image {
 	position: absolute;
-	margin: 0 auto;
+	border-radius: 7px;
+	margin: auto;
 	left: 0;
 	right: 0;
 	top: 32%;
-	width: 30%;
+	width: 50%;
 }
 
 .weapon-attachments {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	margin: 5vh;
-	width: 50vh;
-	height: 12.5vh;
-}
+	position: relative;
+	border-radius: 10px;
+	background-color: rgb(25, 25, 25, 0.8);
+	display: flex;
+	top: 0%;
+	left: 0%;
+	padding-top: 3vh;
+	padding-bottom: 3vh;
+	padding-left: 1.5vw;
+	padding-right: 1.5vw;
+	flex-direction: column;
+	border-radius: 0px 12px 12px 0px;
+	width: max-content;
+	height: auto;
+  }
+
 
 .weapon-attachments-title {
 	position: absolute;
-	bottom: 14vh;
-	left: 0;
+	z-index: 20;
+	top: 5.5vh;
+	left: 75vw;
+	font-family: "Rajdhani", sans-serif;
 	margin: 5vh;
 	color: rgba(255, 255, 255, 0.8);
-	font-family: 'Poppins', sans-serif;
-	font-size: 1.4vh
-}
+  }
 
-.weapon-attachment {
+/* .weapon-attachment {
 	position: relative;
 	height: 12.5vh;
 	width: 10.5vh;
 	background: linear-gradient(to bottom right, var(--CSecondGr), var(--CMainGr));
 	margin-right: 1vh;
 	float: left;
+	border-radius: 12px;
 	transition: .05s linear;
-}
+} */
+
+.weapon-attachment {
+	position: relative;
+	height: 12.5vh;
+	width: 10.5vh;
+	background: linear-gradient(to bottom right, var(--CSecondGr), var(--CMainGr));
+	margin-top: 1vh;
+	border-radius: 12px;
+	float: left;
+	transition: 0.05s linear;
+  }
 
 .weapon-attachment:hover {
-	background: linear-gradient(to bottom right, var(--CSecondGr), var(--CMainGr));
+	background-color: rgb(18, 18, 18);
 	transition: .05s linear;
 }
 
@@ -1047,23 +1126,23 @@ display: none;
 	padding: 2.1%;
 }
 
-.weapon-attachment-label>p {
+.weapon-attachment-label > p {
 	color: #ffffff;
 	font-size: 1.1vh;
 	text-align: center;
 	text-transform: uppercase;
 	line-height: 1.9vh;
-	font-family: 'Poppins', sans-serif;
+	font-family: "Rajdhani", sans-serif;
 	font-weight: 100;
-}
+  }
 
-.weapon-attachment-img {
+  .weapon-attachment-img {
 	max-width: 100%;
 	max-height: 100%;
 	padding: 0.5vw;
-}
+  }
 
-.weapon-attachment-img>img {
+  .weapon-attachment-img > img {
 	display: block;
 	position: relative;
 	margin: 0 auto;
@@ -1072,34 +1151,36 @@ display: none;
 	height: auto;
 	max-width: 100%;
 	max-height: 100%;
-}
+  }
 
 .weapon-attachments-remove {
 	position: absolute;
 	width: 6.5vh;
 	height: 6.5vh;
 	background: linear-gradient(to bottom right, var(--CSecondGr), var(--CMainGr));
-	border-radius: 20px;
+	border-radius: 1vh;
 	margin: 0 auto;
 	left: 0;
 	right: 0;
-	bottom: 20vh;
+	bottom: 5vh;
 	text-align: center;
 	color: white;
 	font-size: 2vh;
-	transition: background-color .05s linear;
+	transition: background-color 0.05s linear;
 }
+
 
 .weapon-attachments-remove:hover {
 	background-color: rgb(18, 18, 18);
-}
+  }
 
 .weapon-attachments-remove>i {
 	line-height: 6.5vh;
 }
 
+
 .weapon-attachments-remove-hover {
-	background-color: rgb(39, 174, 96);
+	background-color: var(--CSecondGr);
 }
 
 .weapon-dragging-class {
@@ -1160,7 +1241,7 @@ display: none;
 }
 
 .weapon-attachments-back:hover {
-	background: linear-gradient(to bottom right, var(--CSecondGr), var(--CMainGr));
+	background: linear-gradient(to bottom right, var(--Chovershadow), var(--Chover));
 }
 @keyframes rotate-y {
 	50% {
